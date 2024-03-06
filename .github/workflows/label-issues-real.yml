@@ -7,6 +7,11 @@ jobs:
   assign-label:
     runs-on: ubuntu-latest
     steps:
+      - name: Output info
+        run: |
+          echo "github.repository: ${{ github.repository }}"
+          echo "github.event.issue.number: ${{ github.event.issue.number }}"
+          echo "secrets.GITHUB_TOKEN : ${{ secrets.GITHUB_TOKEN }}"
       - name: Assign label
         if: contains(github.event.issue.title, 'bug')
         run: |
